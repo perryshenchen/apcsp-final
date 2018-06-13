@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <strings.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+int main(void)
+{
+	char* prog[3];
+	prog[0] = "chrome";
+	prog[1] = "www.yahoo.com";
+	prog[2] = '\0';
+
+	execvp(prog[0], prog);
+}
