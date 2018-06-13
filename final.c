@@ -1,87 +1,42 @@
 #include <stdio.h>
 #include <string.h>
 
-float areaOfCircle (float radius)
+int main()
 {
-	printf("radius: %f\n", radius);
-	return (3.14*radius*radius);
+  int engint1;
+  char input[256], engint[256];
+  char engine[] = "http://lmgtfy.com/?";
+  char goog[] = "q=";
+  char bing[] = "s=b&q=";
+  char yaho[] = "s=y&q";
+ 
+
+	printf("Choose a search engine.\n1) Google\n2) Bing\n3) Yahoo\n");
+while (1)
+{
+	fgets(input, 256, stdin);
+	if (sscanf(input, "%d", &engint1) == 1) break;
+	printf("Invalid search engine.\n");
 }
+	printf("Enter search term:\n");
 
-int main(int argc, char* argv[])
-{	
-  float area;
-  char smallStr[256], bigStr[256];
-  int smallRad;
-  int bigRad;
-  int tempRad;
+while (1)
+{
+	fgets(input, 256, stdin);
+	sscanf(input, "%s", engint);
 
-  if (argc != 3)
-  {
-	printf("Needs two radii.\n");
-	
-	  while (1)
-  	  {
-	  fgets(smallStr, 256, stdin);
-	  
-   	  if (sscanf(smallStr, "%d", &smallRad) == 1) break;
-	  printf("Invalid  radii size.\n");
-  	  
-	  }
-  	
-	  while (1)
-  	  {
-	  
-	  fgets(bigStr, 256, stdin);
-	  
-	  	  if (sscanf(bigStr, "%d", &bigRad) == 1) break;
-	  	  printf("Invalid radii size.\n");
-	  }
+if (engint1 == 1)
+printf("Google search: %s%s%s\n", engine, goog, engint);
 
-  if (smallRad > bigRad)
-  {
-	tempRad = smallRad;
-	smallRad = bigRad;
-	bigRad = tempRad;
-  }
 
-  for (int i = smallRad; i <= bigRad; i++)
-  {
-	area = areaOfCircle(i);
-	printf("area: %f\n\n", area);
-  }
-  }
-  
-  else
-  {
-  int arg1;
-  int arg2;
-  int found = sscanf(argv[1], "%d", &arg1);
-	if (found != 1)
-	{
-	  printf("First argument isn't float.\n");
-	  return 1;
-	}
-  found = sscanf(argv[2], "%d", &arg2);
-  if (found != 1)
-  {
-	printf("Second argument isn't float.\n");
-	return 1;
-  }
-  if (arg2 > arg1)
-  {
-	bigRad = arg2;
-	smallRad = arg1;
-  }
-  else
-  {
-	bigRad = arg1;
-	smallRad = arg2;
-  }
+if (engint1 == 2)
+printf("Bing search: %s%s%s\n", engine, bing, engint);
 
-  for (float i = smallRad; i <= bigRad; i++)
-  {
-	area = areaOfCircle(i);
-	printf("area: %f\n", area);
-  }
+
+if (engint1 == 3)
+printf("Yahoo search: %s%s%s\n", engine, yaho, engint);
+
+
+break;
 }
 }
